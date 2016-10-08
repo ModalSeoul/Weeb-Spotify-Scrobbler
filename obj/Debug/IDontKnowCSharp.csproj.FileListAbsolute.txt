@@ -1,0 +1,9 @@
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\bin\Debug\IDontKnowCSharp.exe.config
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\bin\Debug\IDontKnowCSharp.exe
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\bin\Debug\IDontKnowCSharp.pdb
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.csprojResolveAssemblyReference.cache
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.Form1.resources
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.Properties.Resources.resources
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.csproj.GenerateResource.Cache
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.exe
+c:\users\modal\documents\visual studio 2015\Projects\IDontKnowCSharp\IDontKnowCSharp\obj\Debug\IDontKnowCSharp.pdb
