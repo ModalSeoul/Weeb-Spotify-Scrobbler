@@ -26,8 +26,6 @@ namespace IDontKnowCSharp
 {
     class Scrobble
     {
-        Process Spotify = Process.GetProcessesByName("Spotify")[0];
-
         public String Post(String Url, String PostData, String Token = null)
         {
             WebRequest request = (HttpWebRequest)WebRequest.Create(Url);
@@ -55,6 +53,7 @@ namespace IDontKnowCSharp
         /// <returns>Current title of Spotify window</returns>
         public String SpotifyHandle()
         {
+            Process Spotify = Process.GetProcessesByName("Spotify")[0];
             return Spotify.MainWindowTitle;
         }
     }

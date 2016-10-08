@@ -43,13 +43,22 @@ namespace IDontKnowCSharp
         {
             if (IsLoggedIn)
             {
-                String[] WTitle = Scrobble.SpotifyHandle().Split('-');
-                String Song = WTitle[1].TrimEnd(' ');
-                String Artist = WTitle[0].TrimEnd(' ');
-                if (label2.Text != Song)
+                String Title = Scrobble.SpotifyHandle();
+
+                if (!Title.Contains("Spotify"))
                 {
-                    label2.Text = Song;
-                    Spotify.Scrobble(Song, Artist);
+                    String[] WTitle = Title.Split('-');
+
+                    String Song = WTitle[1].TrimEnd(' ');
+                    String Artist = WTitle[0].TrimEnd(' ');
+                    if (label2.Text != Song)
+                    {
+                        label2.Text = Song;
+                        Spotify.Scrobble(Song, Artist);
+                    }
+                } else
+                {
+                    MessageBox.Show("Wow man");
                 }
             }
         }
