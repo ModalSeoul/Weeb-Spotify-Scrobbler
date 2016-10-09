@@ -26,6 +26,12 @@ namespace IDontKnowCSharp
 {
     class Scrobble
     {
+        public enum Player
+        {
+            SPOTIFY,
+            MUSICBEE
+        }
+
         public String Post(String Url, String PostData, String Token = null)
         {
             WebRequest request = (HttpWebRequest)WebRequest.Create(Url);
@@ -56,9 +62,27 @@ namespace IDontKnowCSharp
             Process Spotify = Process.GetProcessesByName("Spotify")[0];
             return Spotify.MainWindowTitle;
         }
+
+        public String MusicBeeHandle()
+        {
+            Process MusicBee = Process.GetProcessesByName("MusicBee")[0];
+            return MusicBee.MainWindowTitle;
+        }
+
+        public String GetPlayerHandle(Player player)
+        {
+            switch (player)
+            {
+                case Player.SPOTIFY:
+                    return SpotifyHandle();
+                case Player.MUSICBEE:
+                    return MusicBeeHandle();
+            }
+            return null; // temp
+        }
     }
 
-    public class Spotify
+    public class WeebFm
     {
         Scrobble Weeb = new Scrobble();
         public String Token = String.Empty;
@@ -80,6 +104,12 @@ namespace IDontKnowCSharp
                 Token);
         }
     }
+
+    public class MusicBee
+    {
+        Scrobble Scrobble = new Scrobble();
+    }
+
 
     static class Program
     {

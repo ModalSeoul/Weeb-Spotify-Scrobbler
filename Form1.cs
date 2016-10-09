@@ -13,7 +13,7 @@ namespace IDontKnowCSharp
     public partial class Form1 : Form
     {
         Scrobble Scrobble = new Scrobble();
-        Spotify Spotify = new IDontKnowCSharp.Spotify();
+        WeebFm Weeb = new IDontKnowCSharp.WeebFm();
         public bool IsLoggedIn = false;
 
         public Form1()
@@ -30,7 +30,7 @@ namespace IDontKnowCSharp
         {
             if (!IsLoggedIn)
             {
-                String Login = Spotify.Login(userName.Text, passWord.Text);
+                String Login = Weeb.Login(userName.Text, passWord.Text);
                 if (Login.Length > 1)
                 {
                     label1.Text = "Logged In";
@@ -45,7 +45,8 @@ namespace IDontKnowCSharp
             {
                 String Title = Scrobble.SpotifyHandle();
 
-                if (!Title.Contains("Spotify"))
+                // Hacky ad fixes for personal use until I hook the process
+                if (!Title.Contains("Spotify") || !Title.Contains("Marines") || !Title.Contains("Learn More"))
                 {
                     String[] WTitle = Title.Split('-');
 
@@ -54,7 +55,7 @@ namespace IDontKnowCSharp
                     if (label2.Text != Song)
                     {
                         label2.Text = Song;
-                        Spotify.Scrobble(Song, Artist);
+                        Weeb.Scrobble(Song, Artist);
                     }
                 } else
                 {
