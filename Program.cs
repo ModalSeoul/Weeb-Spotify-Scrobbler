@@ -110,7 +110,6 @@ namespace IDontKnowCSharp
         Scrobble Scrobble = new Scrobble();
     }
 
-
     static class Program
     {
         /// <summary>
@@ -121,7 +120,7 @@ namespace IDontKnowCSharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new mainForm());
         }
     }
 }

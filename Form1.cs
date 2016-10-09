@@ -10,20 +10,15 @@ using System.Windows.Forms;
 
 namespace IDontKnowCSharp
 {
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
         Scrobble Scrobble = new Scrobble();
         WeebFm Weeb = new IDontKnowCSharp.WeebFm();
         public bool IsLoggedIn = false;
 
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,11 +57,6 @@ namespace IDontKnowCSharp
                     MessageBox.Show("Wow man");
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
