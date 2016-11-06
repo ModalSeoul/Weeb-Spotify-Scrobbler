@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace IDontKnowCSharp
 {
@@ -38,23 +39,24 @@ namespace IDontKnowCSharp
         {
             if (IsLoggedIn)
             {
-                String Title = Scrobble.SpotifyHandle();
+                String Title = Scrobble.GetPlayerHandle(Scrobble.Player.OSU);
 
-                // Hacky ad fixes for personal use until I hook the process
-                if (!Title.Contains("Spotify") || !Title.Contains("Marines") || !Title.Contains("Learn More"))
+                if (Title != "osu!")
                 {
-                    String[] WTitle = Title.Split('-');
+                    Title = Title.Split(new[] { "osu!  - " }, StringSplitOptions.None)[1];
+                    string Artist = Title.Split(new[] { " - " }, StringSplitOptions.None)[0];
+                    string Song = Title.Split(new[] { "- " }, StringSplitOptions.None)[1];
+                    Song = Song.Split(new[] { " [" }, StringSplitOptions.None)[0];
 
-                    String Song = WTitle[1].TrimEnd(' ');
-                    String Artist = WTitle[0].TrimEnd(' ');
                     if (label2.Text != Song)
                     {
                         label2.Text = Song;
                         Weeb.Scrobble(Song, Artist);
                     }
-                } else
+                }
+                else
                 {
-                    MessageBox.Show("Wow man");
+                    label2.Text = "In Menus";
                 }
             }
         }

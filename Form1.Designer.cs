@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 91);
+            this.label2.Location = new System.Drawing.Point(53, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 4;
@@ -147,7 +147,7 @@
             this.MaximizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Spotify Scrobbler";
+            this.Text = "What I Listen To";
             this.ResumeLayout(false);
             this.PerformLayout();
 

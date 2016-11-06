@@ -29,14 +29,17 @@ namespace IDontKnowCSharp
         public enum Player
         {
             SPOTIFY,
-            MUSICBEE
+            MUSICBEE,
+            OSU
         }
 
         public String Post(String Url, String PostData, String Token = null)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             WebRequest request = (HttpWebRequest)WebRequest.Create(Url);
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
+
 
             if (Token != null)
                 request.Headers.Add("Authorization", string.Format("Token {0}", Token));
@@ -47,11 +50,18 @@ namespace IDontKnowCSharp
             {
                 Stream.Write(Data, 0, Data.Length);
             }
-
-            var Response = (HttpWebResponse)request.GetResponse();
-            var ResponseString = new StreamReader(Response.GetResponseStream()).ReadToEnd();
-            return ResponseString;
-        }
+            try
+            {
+                var Response = (HttpWebResponse)request.GetResponse();
+                var ResponseString = new StreamReader(Response.GetResponseStream()).ReadToEnd();
+                return ResponseString;
+            }
+            catch
+            {
+                MessageBox.Show("Login failed");
+                return null;
+            }
+}
 
         /// <summary>
         /// Uses previously opened handle of Spotify.exe to return its' window title
@@ -69,6 +79,12 @@ namespace IDontKnowCSharp
             return MusicBee.MainWindowTitle;
         }
 
+        public String OsuHandle()
+        {
+            Process osu = Process.GetProcessesByName("osu!")[0];
+            return osu.MainWindowTitle;
+        }
+
         public String GetPlayerHandle(Player player)
         {
             switch (player)
@@ -77,8 +93,10 @@ namespace IDontKnowCSharp
                     return SpotifyHandle();
                 case Player.MUSICBEE:
                     return MusicBeeHandle();
+                case Player.OSU:
+                    return OsuHandle();
             }
-            return null; // temp
+            return null;
         }
     }
 
@@ -86,8 +104,8 @@ namespace IDontKnowCSharp
     {
         Scrobble Weeb = new Scrobble();
         public String Token = String.Empty;
-        public String ApiAuth = "http://localhost:8000/api/api-token-auth/";
-        public String ScrobbleEndPoint = "http://localhost:8000/api/scrobbles/";
+        public String ApiAuth = "https://wilt.fm/api/api-token-auth/";
+        public String ScrobbleEndPoint = "https://wilt.fm/api/scrobbles/";
 
         public String Login(string Username, string Password)
         {
@@ -108,6 +126,7 @@ namespace IDontKnowCSharp
     public class MusicBee
     {
         Scrobble Scrobble = new Scrobble();
+
     }
 
     static class Program
