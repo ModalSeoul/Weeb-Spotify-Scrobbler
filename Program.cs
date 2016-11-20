@@ -47,21 +47,29 @@ namespace IDontKnowCSharp
             var Data = Encoding.ASCII.GetBytes(PostData);
 
             using (var Stream = request.GetRequestStream())
-            {
                 Stream.Write(Data, 0, Data.Length);
-            }
-            try
-            {
+
+            try {
                 var Response = (HttpWebResponse)request.GetResponse();
                 var ResponseString = new StreamReader(Response.GetResponseStream()).ReadToEnd();
                 return ResponseString;
             }
-            catch
-            {
+            catch {
                 MessageBox.Show("Login failed");
                 return null;
             }
 }
+        public String DynamicHandle(String Name)
+        {
+            try
+            {
+                Process proc = Process.GetProcessesByName(Name)[0];
+                return proc.MainWindowTitle;
+            } catch
+            {
+                return string.Format("{0} isn't open!", Name);
+            }
+        }
 
         /// <summary>
         /// Uses previously opened handle of Spotify.exe to return its' window title
@@ -69,20 +77,17 @@ namespace IDontKnowCSharp
         /// <returns>Current title of Spotify window</returns>
         public String SpotifyHandle()
         {
-            Process Spotify = Process.GetProcessesByName("Spotify")[0];
-            return Spotify.MainWindowTitle;
+            return DynamicHandle("Spotify");
         }
 
         public String MusicBeeHandle()
         {
-            Process MusicBee = Process.GetProcessesByName("MusicBee")[0];
-            return MusicBee.MainWindowTitle;
+            return DynamicHandle("MusicBee");
         }
 
         public String OsuHandle()
         {
-            Process osu = Process.GetProcessesByName("osu!")[0];
-            return osu.MainWindowTitle;
+            return DynamicHandle("osu!");
         }
 
         public String GetPlayerHandle(Player player)
@@ -126,14 +131,10 @@ namespace IDontKnowCSharp
     public class MusicBee
     {
         Scrobble Scrobble = new Scrobble();
-
     }
 
     static class Program
     {
-        /// <summary>
-        /// This shit right here keep ya weebfm scrobbles supa fr3$h for Spot1fy on winbl0wz
-        /// </summary>
         [STAThread]
         static void Main()
         {
