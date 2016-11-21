@@ -11,14 +11,7 @@ using System.Windows.Forms;
 
 /*
  * I seriously don't know this language
- * like, at fucking all. I really don't
- * like the idea of JIT compiling, or .net
- * but I mean yeah I wrote this lol
- * no fucking clue if this is terrible or not
- * I mean it works and performs fine but
- * like, the code is probably awful?
- * I've literally only touched this language
- * twice before.
+ * like, at fucking all. 
  */
 
 
@@ -30,8 +23,11 @@ namespace IDontKnowCSharp
         {
             SPOTIFY,
             MUSICBEE,
-            OSU
+            OSU,
+            WINAMP
         }
+
+
 
         public String Post(String Url, String PostData, String Token = null)
         {
@@ -90,6 +86,11 @@ namespace IDontKnowCSharp
             return DynamicHandle("osu!");
         }
 
+        public String WinAmpHandle()
+        {
+            return DynamicHandle("winamp");
+        }
+
         public String GetPlayerHandle(Player player)
         {
             switch (player)
@@ -100,6 +101,8 @@ namespace IDontKnowCSharp
                     return MusicBeeHandle();
                 case Player.OSU:
                     return OsuHandle();
+                case Player.WINAMP:
+                    return WinAmpHandle();
             }
             return null;
         }

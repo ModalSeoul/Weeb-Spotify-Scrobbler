@@ -40,6 +40,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.un = new System.Windows.Forms.Label();
             this.pw = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // userName
@@ -127,12 +133,74 @@
             this.pw.TabIndex = 8;
             this.pw.Text = "Password";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 141);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(313, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Spotify";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(15, 199);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(313, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "osu!";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(15, 170);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(313, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "WinAmp";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(15, 228);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(313, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "MusicBee";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 272);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(313, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Task Tray";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // mainForm
             // 
             this.AcceptButton = this.loginbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 147);
+            this.ClientSize = new System.Drawing.Size(340, 307);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pw);
             this.Controls.Add(this.un);
             this.Controls.Add(this.label4);
@@ -148,6 +216,7 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "What I Listen To";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,6 +233,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label un;
         private System.Windows.Forms.Label pw;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
