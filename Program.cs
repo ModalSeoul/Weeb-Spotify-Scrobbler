@@ -24,7 +24,8 @@ namespace IDontKnowCSharp
             SPOTIFY,
             MUSICBEE,
             OSU,
-            WINAMP
+            WINAMP,
+            FOOBAR_COLUMNSUI
         }
 
 
@@ -89,6 +90,11 @@ namespace IDontKnowCSharp
         public String WinAmpHandle()
         {
             return DynamicHandle("winamp");
+        }
+
+        public String FoobarHandle()
+        {
+            return DynamicHandle("foobar");
         }
 
         public String GetPlayerHandle(Player player)

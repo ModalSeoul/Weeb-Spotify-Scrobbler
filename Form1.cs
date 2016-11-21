@@ -57,9 +57,13 @@ namespace IDontKnowCSharp
                 try
                 {
                     String Title = Scrobble.GetPlayerHandle(Scrobble.Player.WINAMP);
-                    Title = Title.Split(new[] { ". " }, StringSplitOptions.None)[1]; // Gets rid of track number
-                    string Song = Title.Split(new[] { " - " }, StringSplitOptions.None)[0].Trim();
-                    string Artist = Title.Split(new[] { " - " }, StringSplitOptions.None)[1].Trim();
+                    try
+                    {
+                        Title = Title.Split(new[] { ". " }, StringSplitOptions.None)[1]; // Gets rid of track number
+                    }
+                    catch { }
+                    string Artist = Title.Split(new[] { " - " }, StringSplitOptions.None)[0].Trim();
+                    string Song = Title.Split(new[] { " - " }, StringSplitOptions.None)[1].Trim();
 
                     if (label2.Text != Song)
                     {
@@ -84,8 +88,8 @@ namespace IDontKnowCSharp
                 {
                     try
                     {
-                        String Song = Title.Split(new[] { " - " }, StringSplitOptions.None)[0].Trim();
-                        String Artist = Title.Split(new[] { " - " }, StringSplitOptions.None)[1].Trim();
+                        String Artist = Title.Split(new[] { " - " }, StringSplitOptions.None)[0].Trim();
+                        String Song = Title.Split(new[] { " - " }, StringSplitOptions.None)[1].Trim();
                         if (label2.Text != Song)
                         {
                             label2.Text = Song;
